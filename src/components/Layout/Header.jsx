@@ -8,7 +8,8 @@ import {
   Trophy, 
   Flame,
   Menu,
-  X
+  X,
+  Heart
 } from 'lucide-react'
 
 const Header = () => {
@@ -67,6 +68,13 @@ const Header = () => {
               className="text-gray-700 hover:text-primary-600 font-medium transition-colors"
             >
               Ranking
+            </Link>
+            <Link 
+              to="/doacoes" 
+              className="flex items-center space-x-1 text-red-600 hover:text-red-700 font-medium transition-colors bg-red-50 hover:bg-red-100 px-3 py-2 rounded-lg"
+            >
+              <Heart className="w-4 h-4" />
+              <span>Apoiar</span>
             </Link>
           </nav>
 
@@ -197,6 +205,14 @@ const Header = () => {
                 onClick={() => setIsMenuOpen(false)}
               >
                 Ranking
+              </Link>
+              <Link 
+                to="/doacoes" 
+                className="flex items-center space-x-2 text-red-600 hover:text-red-700 font-medium transition-colors bg-red-50 hover:bg-red-100 px-2 py-2 rounded-lg mx-2"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                <Heart className="w-4 h-4" />
+                <span>Apoiar Projeto</span>
               </Link>
               
               {!user && (
