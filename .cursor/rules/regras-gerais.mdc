@@ -1,0 +1,8 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+O documento com a estrutura do projeto se encontra na pasta docs com nome estrutura-de-arquivos-projeto-roadnat.md e a estrutura de pastas e arquivos se encontra no documento projeto-roadnat.md 
+Use sempre esses documentos para se guiar durante a implementação.
+Use esse roadmap https://roadmap.sh/react-native para criar nossa tela com balões que são botões e tem o nome do que deve ser aprendido, e quando clicar no balão, abrir uma tela com o texto ensiando e um exemplo de trecho de código a respeito do assunto. Use ESLint e Prettier além de padrões de designer system.

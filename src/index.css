@@ -1,0 +1,783 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Variáveis CSS */
+:root {
+  --primary-color: #3b82f6;
+  --secondary-color: #8b5cf6;
+  --success-color: #10b981;
+  --warning-color: #f59e0b;
+  --error-color: #ef4444;
+  --gray-50: #f9fafb;
+  --gray-100: #f3f4f6;
+  --gray-900: #111827;
+}
+
+/* Reset e base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  line-height: 1.6;
+  color: var(--gray-900);
+  background-color: var(--gray-50);
+}
+
+/* Custom styles */
+@layer base {
+  html {
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+  
+  body {
+    @apply bg-gray-50 text-gray-900;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-primary-600 hover:bg-primary-700 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-200;
+  }
+  
+  .btn-secondary {
+    @apply bg-secondary-600 hover:bg-secondary-700 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-200;
+  }
+  
+  .card {
+    @apply bg-white rounded-xl shadow-sm border border-gray-200 p-6;
+  }
+  
+  .input-field {
+    @apply w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent;
+  }
+
+  /* Roadmap specific styles */
+  .roadmap-gradient {
+    @apply bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50;
+  }
+  
+  .category-card {
+    @apply bg-white rounded-xl shadow-lg border-2 border-gray-200 hover:border-gray-300 transition-all duration-300;
+  }
+  
+  .category-card.started {
+    @apply border-blue-400 shadow-blue-100;
+  }
+  
+  .category-card.completed {
+    @apply border-green-400 shadow-green-100;
+  }
+  
+  .topic-item {
+    @apply p-4 rounded-lg border-2 transition-all duration-300 cursor-pointer;
+  }
+  
+  .topic-item.completed {
+    @apply bg-green-50 border-green-200 hover:border-green-300;
+  }
+  
+  .topic-item.unlocked {
+    @apply bg-white border-gray-200 hover:border-blue-300 hover:shadow-md;
+  }
+  
+  .topic-item.locked {
+    @apply bg-gray-50 border-gray-200 cursor-not-allowed opacity-60;
+  }
+
+  /* Gamification specific styles */
+  .achievement-card {
+    @apply bg-white rounded-xl shadow-lg p-6 border-2 border-transparent transition-all duration-300;
+  }
+  
+  .achievement-card.earned {
+    @apply border-yellow-300 bg-gradient-to-br from-yellow-50 to-orange-50;
+    animation: pulse-glow 2s infinite;
+  }
+  
+  .achievement-card.available {
+    @apply hover:border-blue-300 hover:shadow-xl cursor-pointer;
+  }
+  
+  .achievement-card.locked {
+    @apply opacity-50 cursor-not-allowed;
+  }
+  
+  .badge-card {
+    @apply bg-white rounded-xl shadow-lg p-6 border-2 border-transparent transition-all duration-300 relative overflow-hidden;
+  }
+  
+  .badge-card.earned {
+    @apply border-purple-300 bg-gradient-to-br from-purple-50 to-pink-50;
+  }
+  
+  .badge-card.earned::before {
+    content: '';
+    @apply absolute inset-0 bg-gradient-to-r from-purple-400/10 to-pink-400/10;
+    animation: float 3s ease-in-out infinite;
+  }
+  
+  .badge-card.available {
+    @apply hover:border-gray-300 hover:shadow-lg;
+  }
+  
+  .badge-card.locked {
+    @apply opacity-40 cursor-not-allowed;
+  }
+  
+  .stat-card {
+    @apply bg-white rounded-xl shadow-lg p-6 text-center transition-all duration-300 hover:shadow-xl;
+  }
+  
+  .level-progress {
+    @apply bg-gradient-to-r from-yellow-400 to-orange-500;
+  }
+  
+  .xp-indicator {
+    @apply bg-amber-100 text-amber-800 px-2 py-1 rounded-full text-xs font-medium;
+  }
+  
+  .rarity-common {
+    @apply border-gray-300 bg-gray-50;
+  }
+  
+  .rarity-uncommon {
+    @apply border-green-300 bg-green-50;
+  }
+  
+  .rarity-rare {
+    @apply border-blue-300 bg-blue-50;
+  }
+  
+  .rarity-epic {
+    @apply border-purple-300 bg-purple-50;
+  }
+  
+  .rarity-legendary {
+    @apply border-yellow-300 bg-gradient-to-br from-yellow-50 to-orange-50;
+    animation: sparkle 2s infinite;
+  }
+
+  /* Prose styles for markdown content */
+  .prose {
+    @apply text-gray-700 leading-relaxed;
+  }
+  
+  .prose h1 {
+    @apply text-3xl font-bold text-gray-900 mb-6;
+  }
+  
+  .prose h2 {
+    @apply text-2xl font-bold text-gray-900 mb-4 mt-8;
+  }
+  
+  .prose h3 {
+    @apply text-xl font-semibold text-gray-900 mb-3 mt-6;
+  }
+  
+  .prose p {
+    @apply mb-4;
+  }
+  
+  .prose ul {
+    @apply mb-4 pl-6;
+  }
+  
+  .prose li {
+    @apply mb-2;
+  }
+  
+  .prose code {
+    @apply bg-gray-100 text-gray-800 px-2 py-1 rounded text-sm font-mono;
+  }
+  
+  .prose pre {
+    @apply bg-gray-900 text-gray-100 p-4 rounded-lg overflow-x-auto mb-4;
+  }
+  
+  .prose pre code {
+    @apply bg-transparent text-gray-100 p-0;
+  }
+
+  /* Classes de Jogos */
+  .game-card {
+    @apply bg-white rounded-xl shadow-lg p-6 border-2 border-transparent transition-all duration-300 cursor-pointer;
+  }
+  
+  .game-card:hover {
+    @apply shadow-xl transform -translate-y-1;
+  }
+  
+  .game-card.quiz {
+    @apply hover:border-blue-300 hover:bg-blue-50;
+  }
+  
+  .game-card.code-completion {
+    @apply hover:border-green-300 hover:bg-green-50;
+  }
+  
+  .game-card.playground {
+    @apply hover:border-purple-300 hover:bg-purple-50;
+  }
+  
+  .energy-bar {
+    @apply bg-white rounded-xl shadow-lg p-6;
+  }
+  
+  .energy-heart {
+    @apply w-8 h-8 rounded-full transition-all duration-300;
+  }
+  
+  .energy-heart.full {
+    @apply bg-red-500;
+    animation: heartbeat 1.5s ease-in-out infinite;
+  }
+  
+  .energy-heart.empty {
+    @apply bg-gray-200;
+  }
+  
+  .quiz-option {
+    @apply w-full p-4 text-left border-2 rounded-lg transition-all duration-200 cursor-pointer;
+  }
+  
+  .quiz-option.default {
+    @apply bg-white border-gray-300 text-gray-700 hover:border-blue-400 hover:bg-blue-50;
+  }
+  
+  .quiz-option.selected {
+    @apply bg-blue-100 border-blue-500 text-blue-800;
+  }
+  
+  .quiz-option.correct {
+    @apply bg-green-100 border-green-500 text-green-800;
+  }
+  
+  .quiz-option.incorrect {
+    @apply bg-red-100 border-red-500 text-red-800;
+  }
+  
+  .quiz-option.eliminated {
+    @apply bg-gray-100 border-gray-300 text-gray-400 opacity-50 cursor-not-allowed;
+  }
+  
+  .code-editor {
+    @apply bg-gray-900 rounded-xl shadow-lg overflow-hidden font-mono;
+  }
+  
+  .code-line {
+    @apply flex items-start;
+  }
+  
+  .code-line-number {
+    @apply text-gray-400 text-sm mr-4 select-none w-8 text-right;
+  }
+  
+  .code-content {
+    @apply flex-1 text-green-400 text-sm leading-relaxed;
+  }
+  
+  .code-blank {
+    @apply inline-block mx-1 px-2 py-1 border rounded text-sm font-mono bg-white border-gray-300;
+  }
+  
+  .code-blank.correct {
+    @apply bg-green-100 border-green-500 text-green-800;
+  }
+  
+  .code-blank.incorrect {
+    @apply bg-red-100 border-red-500 text-red-800;
+  }
+  
+  .code-blank.revealed {
+    @apply bg-yellow-100 border-yellow-500 text-yellow-800;
+  }
+  
+  /* Indicadores de XP e Progresso */
+  .xp-bar {
+    @apply w-full bg-gray-200 rounded-full h-3 overflow-hidden;
+  }
+  
+  .xp-fill {
+    @apply h-full bg-gradient-to-r from-blue-500 to-purple-500 rounded-full transition-all duration-500;
+    animation: level-up 0.5s ease-out;
+  }
+  
+  .level-badge {
+    @apply inline-flex items-center justify-center w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-500 text-white font-bold rounded-full shadow-lg;
+  }
+  
+  .streak-indicator {
+    @apply inline-flex items-center gap-2 px-3 py-1 bg-orange-100 text-orange-800 rounded-full text-sm font-medium;
+  }
+}
+
+/* Animations */
+@keyframes shimmer {
+  0% {
+    background-position: -200px 0;
+  }
+  100% {
+    background-position: calc(200px + 100%) 0;
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(251, 191, 36, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(251, 191, 36, 0.5);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes sparkle {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.05);
+  }
+}
+
+@keyframes level-up {
+  0% {
+    transform: scaleX(0);
+  }
+  100% {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes heartbeat {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+.shimmer {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200px 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+.pulse-glow {
+  animation: pulse-glow 2s infinite;
+}
+
+.float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.sparkle {
+  animation: sparkle 1.5s ease-in-out infinite;
+}
+
+.level-up {
+  animation: level-up 0.6s ease-in-out;
+}
+
+/* Toast animations */
+.animate-enter {
+  animation: slideInRight 0.3s ease-out;
+}
+
+.animate-leave {
+  animation: slideOutRight 0.3s ease-in;
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideOutRight {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+/* Scrollbar customization */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-gray-100;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-gray-300 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-gray-400;
+}
+
+/* Ranking Styles */
+.ranking-card {
+  @apply bg-white rounded-xl shadow-lg p-6 border-2 border-gray-200 transition-all duration-300;
+}
+
+.ranking-card:hover {
+  @apply border-blue-300 shadow-xl transform scale-105;
+}
+
+.ranking-position {
+  @apply flex items-center justify-center w-12 h-12 rounded-full font-bold text-lg;
+}
+
+.ranking-position.first {
+  @apply bg-gradient-to-br from-yellow-400 to-yellow-600 text-white;
+}
+
+.ranking-position.second {
+  @apply bg-gradient-to-br from-gray-300 to-gray-500 text-white;
+}
+
+.ranking-position.third {
+  @apply bg-gradient-to-br from-orange-400 to-orange-600 text-white;
+}
+
+.ranking-position.default {
+  @apply bg-gray-100 text-gray-700;
+}
+
+.league-badge {
+  @apply inline-flex items-center gap-2 px-3 py-1 rounded-full text-sm font-medium;
+}
+
+.league-badge.bronze {
+  @apply bg-orange-100 text-orange-800;
+}
+
+.league-badge.silver {
+  @apply bg-gray-100 text-gray-800;
+}
+
+.league-badge.gold {
+  @apply bg-yellow-100 text-yellow-800;
+}
+
+.league-badge.platinum {
+  @apply bg-blue-100 text-blue-800;
+}
+
+.league-badge.diamond {
+  @apply bg-purple-100 text-purple-800;
+}
+
+.ranking-stats {
+  @apply grid grid-cols-2 md:grid-cols-4 gap-4;
+}
+
+.ranking-stat {
+  @apply text-center p-4 bg-gray-50 rounded-lg;
+}
+
+.ranking-stat-value {
+  @apply text-2xl font-bold text-blue-600;
+}
+
+.ranking-stat-label {
+  @apply text-sm text-gray-600;
+}
+
+/* Challenge Styles */
+.challenge-card {
+  @apply bg-white rounded-xl shadow-lg p-6 border-2 transition-all duration-300;
+}
+
+.challenge-card.completed {
+  @apply border-green-300 bg-green-50;
+}
+
+.challenge-card.active {
+  @apply border-blue-300 hover:border-blue-400 hover:shadow-xl;
+}
+
+.challenge-card.locked {
+  @apply border-gray-200 bg-gray-50 opacity-75;
+}
+
+.challenge-progress {
+  @apply w-full bg-gray-200 rounded-full h-3 overflow-hidden;
+}
+
+.challenge-progress-fill {
+  @apply h-full rounded-full transition-all duration-500;
+}
+
+.challenge-progress-fill.low {
+  @apply bg-gray-400;
+}
+
+.challenge-progress-fill.medium {
+  @apply bg-blue-500;
+}
+
+.challenge-progress-fill.high {
+  @apply bg-green-500;
+}
+
+.challenge-progress-fill.completed {
+  @apply bg-green-500;
+}
+
+.challenge-difficulty {
+  @apply px-2 py-1 rounded-full text-xs font-medium;
+}
+
+.challenge-difficulty.easy {
+  @apply bg-green-100 text-green-800;
+}
+
+.challenge-difficulty.medium {
+  @apply bg-yellow-100 text-yellow-800;
+}
+
+.challenge-difficulty.hard {
+  @apply bg-red-100 text-red-800;
+}
+
+.challenge-reward {
+  @apply flex items-center gap-1 text-sm text-gray-600;
+}
+
+.challenge-category-icon {
+  @apply text-2xl;
+}
+
+.challenge-stats-grid {
+  @apply grid grid-cols-2 md:grid-cols-4 gap-4;
+}
+
+.challenge-stat-card {
+  @apply text-center p-4 rounded-lg;
+}
+
+.challenge-stat-card.blue {
+  @apply bg-blue-50;
+}
+
+.challenge-stat-card.green {
+  @apply bg-green-50;
+}
+
+.challenge-stat-card.purple {
+  @apply bg-purple-50;
+}
+
+.challenge-stat-card.orange {
+  @apply bg-orange-50;
+}
+
+.challenge-stat-value {
+  @apply text-2xl font-bold;
+}
+
+.challenge-stat-value.blue {
+  @apply text-blue-600;
+}
+
+.challenge-stat-value.green {
+  @apply text-green-600;
+}
+
+.challenge-stat-value.purple {
+  @apply text-purple-600;
+}
+
+.challenge-stat-value.orange {
+  @apply text-orange-600;
+}
+
+.challenge-stat-label {
+  @apply text-sm;
+}
+
+.challenge-stat-label.blue {
+  @apply text-blue-700;
+}
+
+.challenge-stat-label.green {
+  @apply text-green-700;
+}
+
+.challenge-stat-label.purple {
+  @apply text-purple-700;
+}
+
+.challenge-stat-label.orange {
+  @apply text-orange-700;
+}
+
+/* Tab Navigation */
+.tab-nav {
+  @apply flex border-b border-gray-200;
+}
+
+.tab-button {
+  @apply flex items-center gap-2 px-6 py-4 font-medium transition-colors;
+}
+
+.tab-button.active {
+  @apply text-blue-600 border-b-2 border-blue-600;
+}
+
+.tab-button.inactive {
+  @apply text-gray-600 hover:text-gray-900;
+}
+
+/* Filter and Search */
+.filter-button {
+  @apply px-3 py-2 rounded-lg text-sm font-medium transition-colors;
+}
+
+.filter-button.active {
+  @apply bg-blue-100 text-blue-800;
+}
+
+.filter-button.inactive {
+  @apply bg-gray-100 text-gray-700 hover:bg-gray-200;
+}
+
+.search-input {
+  @apply w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500;
+}
+
+/* Progress Indicators */
+.progress-ring {
+  @apply relative inline-flex items-center justify-center;
+}
+
+.progress-ring-circle {
+  @apply transform -rotate-90;
+}
+
+.progress-ring-background {
+  @apply text-gray-200;
+}
+
+.progress-ring-progress {
+  @apply text-blue-500 transition-all duration-500;
+}
+
+/* Responsive Grid Layouts */
+.stats-grid {
+  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6;
+}
+
+.cards-grid {
+  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6;
+}
+
+.ranking-grid {
+  @apply grid grid-cols-1 lg:grid-cols-2 gap-6;
+}
+
+/* Utility Classes */
+.gradient-text {
+  @apply bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent;
+}
+
+.gradient-bg {
+  @apply bg-gradient-to-br from-blue-50 to-indigo-100;
+}
+
+.shadow-glow {
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+}
+
+.shadow-glow-green {
+  box-shadow: 0 0 20px rgba(34, 197, 94, 0.3);
+}
+
+.shadow-glow-purple {
+  box-shadow: 0 0 20px rgba(147, 51, 234, 0.3);
+}
+
+/* Animation Classes */
+.animate-bounce-slow {
+  animation: bounce 2s infinite;
+}
+
+.animate-pulse-slow {
+  animation: pulse 3s infinite;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-in;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Hover Effects */
+.hover-lift {
+  @apply transition-transform duration-300;
+}
+
+.hover-lift:hover {
+  @apply transform -translate-y-1;
+}
+
+.hover-glow {
+  @apply transition-all duration-300;
+}
+
+.hover-glow:hover {
+  @apply shadow-lg;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
