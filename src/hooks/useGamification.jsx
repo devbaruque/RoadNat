@@ -40,11 +40,6 @@ export const useGamification = () => {
       } catch (error) {
         console.error('Erro ao carregar dados de gamificação:', error)
       }
-    } else {
-      // Dados iniciais para demonstração
-      const mockCompletedTopics = ['js-fundamentals', 'functions-arrow']
-      setCompletedTopics(mockCompletedTopics)
-      calculateAndUpdateStats(mockCompletedTopics)
     }
   }, [])
 

@@ -25,11 +25,6 @@ export function useProgress() {
       } catch (error) {
         console.error('Erro ao carregar progresso:', error)
       }
-    } else {
-      // Dados iniciais para demonstração
-      const mockCompletedTopics = ['js-fundamentals', 'functions-arrow']
-      setCompletedTopics(mockCompletedTopics)
-      calculateStats(mockCompletedTopics)
     }
   }, [])
 
