@@ -1,10 +1,10 @@
-# ReactNat 🚀
+# RoadNat 🚀
 
 Uma plataforma gamificada para aprender React Native, inspirada no Duolingo.
 
 ## 📋 Sobre o Projeto
 
-ReactNat é uma aplicação educacional que transforma o aprendizado de React Native em uma experiência gamificada e interativa. Com um roadmap visual baseado no roadmap.sh/react-native, sistema de pontuação, desafios diários e jogos educativos.
+RoadNat é uma aplicação educacional que transforma o aprendizado de React Native em uma experiência gamificada e interativa. Com um roadmap visual baseado no roadmap.sh/react-native, sistema de pontuação, desafios diários e jogos educativos.
 
 ## ✨ Funcionalidades
 
@@ -39,10 +39,10 @@ ReactNat é uma aplicação educacional que transforma o aprendizado de React Na
 ### Instalação
 ```bash
 # Clone o repositório
-git clone https://github.com/[SEU_USUARIO]/ReactNat.git
+git clone https://github.com/[SEU_USUARIO]/RoadNat.git
 
 # Entre no diretório
-cd ReactNat
+cd RoadNat
 
 # Instale as dependências
 npm install
