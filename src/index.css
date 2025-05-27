@@ -1036,4 +1036,69 @@ a:focus-visible {
     grid-template-columns: repeat(2, 1fr);
     gap: 0.75rem;
   }
+  
+  /* Responsividade para filtros do roadmap */
+  .flex.flex-wrap.gap-2 {
+    gap: 0.5rem;
+  }
+  
+  .flex.flex-wrap.gap-2 button {
+    font-size: 0.75rem;
+    padding: 0.5rem 0.75rem;
+  }
+  
+  /* Estatísticas do roadmap em telas pequenas */
+  .grid.grid-cols-2.md\\:grid-cols-4.gap-4 {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+  }
+  
+  /* Correção específica para header em telas muito pequenas */
+  header .max-w-7xl .flex.justify-between.items-center {
+    flex-wrap: nowrap !important;
+    gap: 0.25rem;
+  }
+  
+  /* Garantir que os botões de login/cadastro fiquem à direita */
+  header .flex.items-center.space-x-2,
+  header .flex.items-center.space-x-3 {
+    flex-shrink: 0;
+    min-width: auto;
+  }
+  
+  /* Ajustar tamanho dos botões em telas muito pequenas */
+  header .btn-primary {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.75rem;
+  }
+  
+  header .text-sm {
+    font-size: 0.75rem;
+  }
+  
+  /* Logo e nome mais compactos */
+  header .flex.items-center.space-x-2 img {
+    width: 1.75rem;
+    height: 1.75rem;
+  }
+  
+  header .flex.items-center.space-x-2 span {
+    font-size: 1rem;
+  }
+  
+  /* Controles de busca do roadmap - específicos para não afetar header */
+  .roadmap-controls .flex.items-center.justify-between {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: stretch;
+  }
+  
+  .roadmap-controls .flex.items-center.space-x-3 {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  
+  .roadmap-controls .flex.items-center.space-x-3 > * {
+    margin-left: 0 !important;
+  }
 }

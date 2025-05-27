@@ -113,18 +113,5 @@ O projeto tem uma base sólida e funcional, mas precisa de integração com back
 roadmap
  Próximos Passos Sugeridos
 Conteúdo Detalhado: Adicionar descrições específicas para cada tema
-Sistema de Progresso: Implementar tracking de progresso do usuário
-Busca e Filtros: Adicionar funcionalidade de busca por temas
-Favoritos: Permitir que usuários marquem temas favoritos
-Gamificação: Integrar sistema de XP e conquistas
-A página roadmap agora oferece uma experiência completa e profissional para aprender React Native, com uma estrutura clara e navegação intuitiva! 🎉
-
-
-
-Obs: Na tela roadmap:
-Todos os botões de "Vídeo Tutorial" ao ser clicado deve aparecer um modal informando que ainda não tem vídeo disponível mas que estamos desenvolvendo.
-na página roadmap deve exibir o progresso do aluno e um botão para levar ele até onde ele parou.
-Após o texto de Conteúdo tem que ter um botão de concluído para que o progresso de conteúdo lido avançe. deve dividir a barra de progresso de acordo com a quantidade de temas que vai de 0% a 100%
-O botão de exercícios práticos deve levar o aluno a tela games onde tem o centro de jogos.
-em Exemplo dentro de tema o botão de copiar deve exbir uma mensagem informando que o texto foi copiado.
-
+Integração com Supabase: Persistir favoritos e progresso no backend
+Histórico de busca: Salvar buscas recentes
