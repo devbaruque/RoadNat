@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { Github, Twitter, Mail, Heart } from 'lucide-react'
+import roadnatLogo from '../../assets/roadnat.png'
 
 const Footer = () => {
   const currentYear = new Date().getFullYear()
@@ -10,10 +11,12 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Brand */}
           <div className="col-span-1 md:col-span-2">
-            <div className="flex items-center space-x-2 mb-4">
-              <div className="w-8 h-8 bg-gradient-to-br from-primary-500 to-primary-700 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-lg">R</span>
-              </div>
+            <div className="flex items-center space-x-3 mb-4">
+              <img 
+                src={roadnatLogo} 
+                alt="RoadNat Logo" 
+                className="w-10 h-10 object-contain"
+              />
               <span className="text-xl font-bold">RoadNat</span>
             </div>
             <p className="text-gray-400 mb-6 max-w-md">

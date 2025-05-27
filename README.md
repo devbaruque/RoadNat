@@ -1,6 +1,10 @@
-# RoadNat 🚀
-
-Uma plataforma gamificada para aprender React Native, inspirada no Duolingo.
+<div align="center">
+  <img src="src/assets/roadnat.png" alt="RoadNat Logo" width="120" height="120">
+  
+  # RoadNat 🚀
+  
+  Uma plataforma gamificada para aprender React Native, inspirada no Duolingo.
+</div>
 
 ## 📋 Sobre o Projeto
 

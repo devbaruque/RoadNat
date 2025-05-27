@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import QRCodePix from '../components/QRCodePix';
+import roadnatLogo from '../assets/roadnat.png';
 
 export default function Doacoes() {
   const [copiedPix, setCopiedPix] = useState(false);
@@ -60,6 +61,13 @@ export default function Doacoes() {
       <div className="bg-white/80 backdrop-blur-sm border-b border-white/20">
         <div className="max-w-6xl mx-auto px-4 py-8">
           <div className="text-center">
+            <div className="flex justify-center mb-6">
+              <img 
+                src={roadnatLogo} 
+                alt="RoadNat Logo" 
+                className="w-20 h-20 object-contain"
+              />
+            </div>
             <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 bg-clip-text text-transparent mb-4">
               Apoie o RoadNat
             </h1>
@@ -75,10 +83,12 @@ export default function Doacoes() {
         <div className="mb-16">
           <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-lg border border-white/20">
             <div className="text-center mb-8">
-              <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-                </svg>
+              <div className="flex justify-center mb-4">
+                <img 
+                  src={roadnatLogo} 
+                  alt="RoadNat Logo" 
+                  className="w-16 h-16 object-contain"
+                />
               </div>
               <h2 className="text-3xl font-bold text-gray-800 mb-4">Nossa Missão</h2>
             </div>

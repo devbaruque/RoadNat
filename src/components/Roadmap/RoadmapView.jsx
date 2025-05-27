@@ -1,5 +1,6 @@
 import Balao from "./Balao";
 import { roadmap } from "../../data/roadmap";
+import roadnatLogo from "../../assets/roadnat.png";
 
 export default function RoadmapView() {
   return (
@@ -14,6 +15,13 @@ export default function RoadmapView() {
 
       {/* Título principal */}
       <div className="text-center mb-16 relative z-10">
+        <div className="flex justify-center mb-8">
+          <img 
+            src={roadnatLogo} 
+            alt="RoadNat Logo" 
+            className="w-20 h-20 object-contain"
+          />
+        </div>
         <h1 className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 bg-clip-text text-transparent mb-4 animate-fade-in">
           React Native Roadmap
         </h1>

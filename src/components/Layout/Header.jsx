@@ -11,6 +11,7 @@ import {
   X,
   Heart
 } from 'lucide-react'
+import roadnatLogo from '../../assets/roadnat.png'
 
 const Header = () => {
   const { user, userProfile, signOut } = useAuth()
@@ -36,10 +37,12 @@ const Header = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-2">
-            <div className="w-8 h-8 bg-gradient-to-br from-primary-500 to-primary-700 rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-lg">R</span>
-            </div>
+          <Link to="/" className="flex items-center space-x-3">
+            <img 
+              src={roadnatLogo} 
+              alt="RoadNat Logo" 
+              className="w-10 h-10 object-contain"
+            />
             <span className="text-xl font-bold text-gray-900">RoadNat</span>
           </Link>
 
@@ -68,6 +71,12 @@ const Header = () => {
               className="text-gray-700 hover:text-primary-600 font-medium transition-colors"
             >
               Ranking
+            </Link>
+            <Link 
+              to="/empresas" 
+              className="text-gray-700 hover:text-primary-600 font-medium transition-colors"
+            >
+              Empresas
             </Link>
             <Link 
               to="/doacoes" 
@@ -205,6 +214,13 @@ const Header = () => {
                 onClick={() => setIsMenuOpen(false)}
               >
                 Ranking
+              </Link>
+              <Link 
+                to="/empresas" 
+                className="text-gray-700 hover:text-primary-600 font-medium transition-colors px-2 py-1"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Empresas
               </Link>
               <Link 
                 to="/doacoes" 

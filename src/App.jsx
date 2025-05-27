@@ -12,6 +12,7 @@ import Games from './pages/Games'
 import Ranking from './pages/Ranking'
 import Challenges from './pages/Challenges'
 import Doacoes from './pages/Doacoes'
+import Empresas from './pages/Empresas'
 
 // Create a client
 const queryClient = new QueryClient({
@@ -40,6 +41,7 @@ function App() {
               <Route path="ranking" element={<Ranking />} />
               <Route path="challenges" element={<Challenges />} />
               <Route path="doacoes" element={<Doacoes />} />
+              <Route path="empresas" element={<Empresas />} />
               {/* Placeholder routes - will be implemented in next phases */}
               <Route path="profile" element={<div className="p-8 text-center">Perfil - Em breve!</div>} />
               <Route path="settings" element={<div className="p-8 text-center">Configurações - Em breve!</div>} />

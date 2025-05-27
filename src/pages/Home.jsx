@@ -10,6 +10,7 @@ import {
   ArrowRight,
   Star
 } from 'lucide-react'
+import roadnatLogo from '../assets/roadnat.png'
 
 const Home = () => {
   const features = [
@@ -63,6 +64,13 @@ const Home = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
+              <div className="flex justify-center lg:justify-start mb-8">
+                <img 
+                  src={roadnatLogo} 
+                  alt="RoadNat Logo" 
+                  className="w-24 h-24 object-contain"
+                />
+              </div>
               <h1 className="text-4xl lg:text-6xl font-bold text-gray-900 mb-6">
                 Aprenda{' '}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-600 to-secondary-600">
