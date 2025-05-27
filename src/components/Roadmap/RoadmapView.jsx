@@ -1,8 +1,12 @@
 import Balao from "./Balao";
 import { roadmap } from "../../data/roadmap";
 import roadnatLogo from "../../assets/roadnat.png";
+import { useProgress } from "../../hooks/useProgress";
 
 export default function RoadmapView() {
+  const { getProgressPercentage, completedTopics } = useProgress();
+  const progressPercentage = getProgressPercentage(roadmap.length);
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 py-12 px-4 relative overflow-hidden">
       {/* Elementos decorativos de fundo */}
@@ -28,6 +32,25 @@ export default function RoadmapView() {
         <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
           Sua jornada completa para dominar o desenvolvimento mobile com React Native
         </p>
+        
+        {/* Barra de Progresso Geral */}
+        <div className="mt-8 max-w-md mx-auto">
+          <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-white/20">
+            <div className="flex items-center justify-between mb-3">
+              <span className="text-sm font-medium text-gray-700">Progresso Geral</span>
+              <span className="text-sm font-bold text-blue-600">{progressPercentage}%</span>
+            </div>
+            <div className="w-full bg-gray-200 rounded-full h-3 mb-2">
+              <div 
+                className="bg-gradient-to-r from-blue-500 to-purple-500 h-3 rounded-full transition-all duration-500 ease-out"
+                style={{ width: `${progressPercentage}%` }}
+              ></div>
+            </div>
+            <div className="text-xs text-gray-500 text-center">
+              {completedTopics.length} de {roadmap.length} tópicos concluídos
+            </div>
+          </div>
+        </div>
         
         {/* Linha decorativa */}
         <div className="flex items-center justify-center mt-8 space-x-4">

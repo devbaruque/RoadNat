@@ -313,19 +313,19 @@ export default function Doacoes() {
                   
                   <div className="bg-white rounded-lg p-4 mb-4">
                     <p className="text-sm text-gray-600 mb-2">Chave PIX:</p>
-                    <div className="flex items-center justify-between bg-gray-50 rounded-lg p-3">
-                      <code className="text-sm text-gray-800 flex-1">{chavePix}</code>
-                      <button
-                        onClick={copyPixKey}
-                        className={`ml-2 px-3 py-1 rounded-lg text-sm font-medium transition-colors ${
-                          copiedPix 
-                            ? 'bg-green-500 text-white' 
-                            : 'bg-blue-500 hover:bg-blue-600 text-white'
-                        }`}
-                      >
-                        {copiedPix ? '✓ Copiado!' : 'Copiar'}
-                      </button>
+                    <div className="bg-gray-50 rounded-lg p-3 mb-3">
+                      <code className="text-xs sm:text-sm text-gray-800 break-all block">{chavePix}</code>
                     </div>
+                    <button
+                      onClick={copyPixKey}
+                      className={`w-full px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
+                        copiedPix 
+                          ? 'bg-green-500 text-white' 
+                          : 'bg-blue-500 hover:bg-blue-600 text-white'
+                      }`}
+                    >
+                      {copiedPix ? '✓ Copiado!' : 'Copiar Chave PIX'}
+                    </button>
                   </div>
                   
                   <p className="text-green-700 text-sm">

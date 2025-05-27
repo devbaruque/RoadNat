@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { useAuth } from '../contexts/AuthContext'
 import { Eye, EyeOff, Mail, Lock, User, Github } from 'lucide-react'
+import roadnatLogo from '../assets/roadnat.png'
 
 const Register = () => {
   const [formData, setFormData] = useState({
@@ -101,9 +102,11 @@ const Register = () => {
       >
         <div>
           <div className="flex justify-center">
-            <div className="w-16 h-16 bg-gradient-to-br from-primary-500 to-primary-700 rounded-2xl flex items-center justify-center">
-              <span className="text-white font-bold text-2xl">R</span>
-            </div>
+            <img 
+              src={roadnatLogo} 
+              alt="RoadNat Logo" 
+              className="w-20 h-20 object-contain"
+            />
           </div>
           <h2 className="mt-6 text-center text-3xl font-bold text-gray-900">
             Criar sua conta

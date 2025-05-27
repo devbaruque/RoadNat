@@ -907,6 +907,45 @@ body {
   }
 }
 
+/* Responsividade para telas muito pequenas */
+@media (min-width: 480px) {
+  .hidden.xs\:block {
+    display: block;
+  }
+  
+  .xs\:inline {
+    display: inline;
+  }
+  
+  .xs\:hidden {
+    display: none;
+  }
+}
+
+@media (max-width: 479px) {
+  .hidden.xs\:block {
+    display: none;
+  }
+  
+  .xs\:inline {
+    display: none;
+  }
+  
+  .xs\:hidden {
+    display: inline;
+  }
+  
+  /* Ajustes específicos para header em telas muito pequenas */
+  header .flex.justify-between {
+    gap: 0.5rem;
+  }
+  
+  /* Garantir que o botão de menu mobile tenha espaço suficiente */
+  .md\:hidden {
+    min-width: 40px;
+  }
+}
+
 /* Estados de foco melhorados */
 button:focus-visible,
 a:focus-visible {
@@ -919,4 +958,82 @@ a:focus-visible {
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
+}
+
+@keyframes copy-notification {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px) scale(0.8);
+  }
+  10% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  90% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-5px) scale(0.9);
+  }
+}
+
+.animate-copy-notification {
+  animation: copy-notification 2s ease-out forwards;
+}
+
+/* Responsividade específica para o código e botão de copiar */
+@media (max-width: 437px) {
+  /* Header do código em telas muito pequenas */
+  .bg-gray-800 {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+  
+  /* Garantir que o botão de copiar não saia da estrutura */
+  .bg-gray-800 .flex.items-center.justify-between {
+    gap: 0.5rem;
+  }
+  
+  /* Texto do arquivo truncado em telas pequenas */
+  .bg-gray-800 .truncate {
+    max-width: calc(100vw - 120px);
+  }
+  
+  /* Botão de copiar menor em telas muito pequenas */
+  .bg-gray-800 button {
+    padding: 0.25rem;
+    min-width: 32px;
+    min-height: 32px;
+  }
+  
+  /* Código com padding reduzido */
+  .bg-gray-900 .overflow-x-auto {
+    padding: 0.75rem;
+  }
+  
+  /* Responsividade específica para página de doações */
+  .bg-gradient-to-br.from-green-50.to-teal-50 {
+    padding: 1rem;
+  }
+  
+  /* Chave PIX responsiva */
+  .bg-gray-50 code {
+    font-size: 0.75rem;
+    line-height: 1.2;
+    word-break: break-all;
+  }
+  
+  /* Botão de copiar PIX em telas pequenas */
+  .bg-gradient-to-br.from-green-50.to-teal-50 button {
+    padding: 0.75rem 1rem;
+    font-size: 0.875rem;
+  }
+  
+  /* Grid de valores sugeridos */
+  .grid.grid-cols-2.md\\:grid-cols-4 {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+  }
 }

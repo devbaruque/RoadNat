@@ -37,13 +37,13 @@ const Header = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-3">
+          <Link to="/" className="flex items-center space-x-2 sm:space-x-3">
             <img 
               src={roadnatLogo} 
               alt="RoadNat Logo" 
-              className="w-10 h-10 object-contain"
+              className="w-8 h-8 sm:w-10 sm:h-10 object-contain"
             />
-            <span className="text-xl font-bold text-gray-900">RoadNat</span>
+            <span className="text-lg sm:text-xl font-bold text-gray-900">RoadNat</span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -153,18 +153,19 @@ const Header = () => {
                 </div>
               </>
             ) : (
-              <div className="flex items-center space-x-3">
+              <div className="flex items-center space-x-2 sm:space-x-3">
                 <Link
                   to="/login"
-                  className="text-gray-700 hover:text-primary-600 font-medium transition-colors"
+                  className="text-gray-700 hover:text-primary-600 font-medium transition-colors text-sm sm:text-base"
                 >
                   Entrar
                 </Link>
                 <Link
                   to="/register"
-                  className="btn-primary"
+                  className="btn-primary text-sm sm:text-base px-3 sm:px-4 py-2"
                 >
-                  Cadastrar
+                  <span className="hidden xs:inline">Cadastrar</span>
+                  <span className="xs:hidden">+</span>
                 </Link>
               </div>
             )}

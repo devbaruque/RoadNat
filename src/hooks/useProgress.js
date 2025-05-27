@@ -1,8 +1,12 @@
 import { useState, useEffect } from 'react'
 import { categories, getTopicsByCategory } from '../constants/roadmapData'
 
-export const useProgress = () => {
-  const [completedTopics, setCompletedTopics] = useState([])
+export function useProgress() {
+  const [completedTopics, setCompletedTopics] = useState(() => {
+    const saved = localStorage.getItem('roadnat-completed-topics');
+    return saved ? JSON.parse(saved) : [];
+  });
+
   const [userStats, setUserStats] = useState({
     totalXP: 0,
     currentStreak: 0,
@@ -28,6 +32,10 @@ export const useProgress = () => {
       calculateStats(mockCompletedTopics)
     }
   }, [])
+
+  useEffect(() => {
+    localStorage.setItem('roadnat-completed-topics', JSON.stringify(completedTopics));
+  }, [completedTopics]);
 
   // Salvar progresso no localStorage
   const saveProgress = (newCompletedTopics, newStats) => {
@@ -126,6 +134,20 @@ export const useProgress = () => {
     return null // Todos os tópicos foram completados
   }
 
+  const markTopicAsCompleted = (topicRoute) => {
+    if (!completedTopics.includes(topicRoute)) {
+      setCompletedTopics(prev => [...prev, topicRoute]);
+    }
+  };
+
+  const isTopicCompleted = (topicRoute) => {
+    return completedTopics.includes(topicRoute);
+  };
+
+  const getProgressPercentage = (totalTopics) => {
+    return Math.round((completedTopics.length / totalTopics) * 100);
+  };
+
   return {
     completedTopics,
     userStats,
@@ -133,6 +155,9 @@ export const useProgress = () => {
     resetProgress,
     isCategoryUnlocked,
     getCategoryProgress,
-    getNextRecommendedTopic
+    getNextRecommendedTopic,
+    markTopicAsCompleted,
+    isTopicCompleted,
+    getProgressPercentage
   }
 } 
