@@ -6,6 +6,7 @@ import Home from './pages/Home'
 import Login from './pages/Login'
 import Register from './pages/Register'
 import Roadmap from './pages/Roadmap'
+import TemaDetalhe from './pages/TemaDetalhe'
 import Dashboard from './pages/Dashboard'
 import Games from './pages/Games'
 import Ranking from './pages/Ranking'
@@ -32,6 +33,7 @@ function App() {
               <Route path="login" element={<Login />} />
               <Route path="register" element={<Register />} />
               <Route path="roadmap" element={<Roadmap />} />
+              <Route path="tema/:nome" element={<TemaDetalhe />} />
               <Route path="dashboard" element={<Dashboard />} />
               <Route path="games" element={<Games />} />
               <Route path="ranking" element={<Ranking />} />
